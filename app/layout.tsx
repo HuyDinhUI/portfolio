@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
 import { Kanit, Roboto, Manrope } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400","300","200"]
-})
+import Header from "@/components/ui/header";
+import { SectionProvider } from "@/contexts/sectionContext";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -41,8 +31,10 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${kanit.variable} antialiased bg-black`}
       >
-        <Header/>
-        {children}
+        <SectionProvider>
+          <Header/>
+          {children}
+        </SectionProvider>
       </body>
     </html>
   );
