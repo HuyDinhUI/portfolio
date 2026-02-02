@@ -1,13 +1,16 @@
-"use client"
+"use client";
 
-import Section from "../ui/section"
+import Kanflow from "../projects/Kanflow";
+import Lumina from "../projects/Lumina";
+import Section from "../ui/section";
 
 const Project = () => {
-    return (
-        <Section id="project" classname="min-h-screen z-2 bg-white">
-            <div></div>
-        </Section>
-    )
-}
+  return (
+    <Section id="project" classname="min-h-screen z-2 bg-white overflow-hidden">
+      <Kanflow />
+      <Lumina />
+    </Section>
+  );
+};
 
-export default Project
+export default Project;

@@ -1,8 +1,7 @@
 "use client";
-
-import { SectionContext } from "@/contexts/sectionContext";
+import { useActiveSection } from "@/hooks/useScrollActiveSection";
 import Link from "next/link";
-import { useContext } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NAVBAR_ITEMS = [
   {
@@ -28,21 +27,60 @@ const NAVBAR_ITEMS = [
 ];
 
 const Header = () => {
-  
-  const section = useContext(SectionContext)
+  const activeSection = useActiveSection(NAVBAR_ITEMS.map((i) => i.id));
+
+  const navRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+
+  const [pill, setPill] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  useEffect(() => {
+    if (!activeSection) return;
+
+    const el = itemRefs.current[activeSection];
+    const container = navRef.current;
+
+    if (!el || !container) return;
+
+    const elRect = el.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+
+    setPill({
+      left: elRect.left - containerRect.left,
+      width: elRect.width,
+      opacity: 1,
+    });
+  }, [activeSection]);
 
   return (
-    <header className="px-40 py-4 fixed right-0 left-0 z-999 bg-black">
-      <nav className="flex justify-center text-md gap-10">
+    <header
+      className={`px-40 py-4 sticky top-0 z-999 transition-transform duration-300 bg-black`}
+    >
+      <nav ref={navRef} className="flex justify-center text-md gap-10 relative">
+        <span
+          className="absolute top-1/2 -translate-y-1/2 h-9 rounded-full
+            bg-white/20 backdrop-blur
+            transition-all duration-300 ease-out"
+          style={{
+            left: pill.left,
+            width: pill.width,
+            opacity: pill.opacity,
+          }}
+        />
         {NAVBAR_ITEMS.map((i) => (
           <Link
-            onClick={() => section?.setSection(i.id)}
             key={i.id}
             href={i.href}
-            className={`px-3 py-1 rounded-full relative font-bold ${section?.section === i.id ? 'text-white' : 'text-gray-be'}`}
+            className={`px-3 py-1 rounded-full relative font-bold transition-colors ${activeSection === i.id ? "text-white" : "text-gray-be"}`}
+            ref={(el) => {
+              itemRefs.current[i.id] = el;
+            }}
           >
             {i.name}
-            <span className={`absolute left-0 w-0 ${section?.section === i.id && 'w-full'} bottom-0 h-0.5 bg-white transition-all`}></span>
           </Link>
         ))}
       </nav>

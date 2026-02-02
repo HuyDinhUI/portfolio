@@ -10,7 +10,7 @@ const About = () => {
       id="about"
       classname="bg-linear-to-tl from-white from-50% to-[#ced4da] z-2 relative py-20 px-30"
     >
-      <div className="">
+      <div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
