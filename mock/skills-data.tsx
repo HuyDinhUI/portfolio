@@ -1,62 +1,64 @@
+import { LogoItem } from "@/components/animations/logo-loop";
 import { Skill } from "@/types/skill.type";
 import {
   SiNextdotjs,
   SiReact,
   SiTypescript,
   SiNodedotjs,
-  SiDocker,
   SiMysql,
   SiMongodb,
   SiGithub,
+  SiPrisma,
+  SiPostgresql,
+  SiSupabase,
 } from "react-icons/si";
 
 export const LIST_SKILLS: Skill[] = [
   {
-    title: "React.js",
+    title: "Redux Toolkit",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiReact />,
+      "CreateSlice, CreateThunkAsync, Middleware, Persist, Redux Query, Adapter Entity, Devtools",
   },
   {
-    title: "Next.js",
+    title: "Zustand",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiNextdotjs />,
+      "Apis, Hooks, Middleware, Persist, Devtools",
   },
   {
-    title: "Typescript",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiTypescript />,
+    title: "React Query",
+    description: "useQuery, useMutation, useOptions, Refetch, Optimitics, Devtools"
+  }
+];
+
+export const LOGO_ITEMS: LogoItem[] = [
+  {
+    node: <SiReact color="gray"/>,
   },
   {
-    title: "Node.js",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiNodedotjs />,
+    node: <SiNextdotjs color="gray" />,
   },
   {
-    title: "MySQL",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiMysql />,
+    node: <SiNodedotjs color="gray" />,
   },
   {
-    title: "MongoDB",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiMongodb />,
+    node: <SiTypescript color="gray" />,
   },
   {
-    title: "Docker",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiDocker />,
+    node: <SiMongodb color="gray" />,
   },
   {
-    title: "Github",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    icon: <SiGithub />,
+    node: <SiMysql color="gray" />,
+  },
+  {
+    node: <SiPostgresql color="gray" />,
+  },
+  {
+    node: <SiPrisma color="gray" />,
+  },
+  {
+    node: <SiSupabase color="gray" />,
+  },
+  {
+    node: <SiGithub color="gray" />,
   },
 ];

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
@@ -10,16 +10,16 @@ const Hero = () => {
   const brightness = useTransform(
     scrollY,
     [0, 900],
-    ["brightness(100%)", "brightness(-20%)"]
+    ["brightness(100%)", "brightness(-20%)"],
   );
 
   return (
-    <motion.div
+    <motion.section
       id="hero"
-      className="min-h-screen bg-radial-[at_50%_40%] from-white/5 from-3% to-black to-130% z-1 relative"
+      className="min-h-screen flex justify-center bg-radial-[at_50%_40%] from-white/5 from-3% to-black to-130% z-1 relative"
       style={{ y, filter: brightness }}
     >
-      <div className="flex flex-col justify-center items-center min-h-screen">
+      <div className="w-[min(1100px,90vw)] flex flex-col justify-center items-center min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-gray-be text-5xl mt-10 text-center"
+          className="text-gray-be text-[clamp(30px,5vw,40px)] leading-12 pt-5 mt-10 text-center"
         >
           I’m Huy Dinh,{" "}
           <span className="text-white">accelerating business</span> <br /> by
@@ -43,9 +43,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex text-gray-be mt-7 text-xl"
+          className="flex gap-2 text-gray-be mt-7 text-xl"
         >
-          Frontend Developer
+          <span>Frontend Developer</span>|<span>Fullstack Developer</span>
         </motion.div>
 
         <motion.div
@@ -59,7 +59,7 @@ const Hero = () => {
           </Link>
         </motion.div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

@@ -1,30 +1,9 @@
 "use client";
+
 import { useActiveSection } from "@/hooks/useScrollActiveSection";
+import { NAVBAR_ITEMS } from "@/mock/navbar-item";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-const NAVBAR_ITEMS = [
-  {
-    id: "about",
-    name: "About",
-    href: "#about",
-  },
-  {
-    id: "skill",
-    name: "Skill",
-    href: "#skill",
-  },
-  {
-    id: "project",
-    name: "Project",
-    href: "#project",
-  },
-  {
-    id: "contact",
-    name: "Contact",
-    href: "#contact",
-  },
-];
 
 const Header = () => {
   const activeSection = useActiveSection(NAVBAR_ITEMS.map((i) => i.id));

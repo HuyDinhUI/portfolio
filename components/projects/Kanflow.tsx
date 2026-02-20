@@ -2,16 +2,53 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Button } from "../ui/button";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Kanflow = () => {
-  const router = useRouter()
   return (
     <div className="mt-30">
-      <div className="p-20 gap-30 relative">
-        <div className="pe-170">
-          <div className="flex items-center">
+      <div className="gap-30 relative">
+        <div className="flex items-center justify-center mb-10 md:hidden">
+          <motion.div
+            initial={{ x: -20, opacity: 0.5 }}
+            whileInView={{ x: 20, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Image
+              src={"/logo-kanflow.png"}
+              width={100}
+              height={50}
+              alt="Logo Kanflow"
+            />
+          </motion.div>
+          <motion.h2
+            initial={{ x: -20, opacity: 0.5 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold"
+          >
+            Kanflow
+          </motion.h2>
+        </div>
+        <motion.div
+          className="md:hidden"
+          initial={{ x: 300 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "tween", duration: 0.5, delay: 0.1 }}
+        >
+          <Image
+            src={"/mockup/devices/desktop/kanflow-ui-desktop.png"}
+            width={800}
+            height={100}
+            alt="Kanflow UI Desktop"
+            className=""
+          />
+        </motion.div>
+        <div className="lg:pe-170">
+          <div className="flex items-center max-md:hidden">
             <motion.div
               initial={{ x: -20, opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -69,15 +106,29 @@ const Kanflow = () => {
             viewport={{ once: true }}
             className="flex gap-2 mt-5"
           >
-            <Button title="Case study" onClick={() => router.push("/project/kanflow")} />
-            <Button title="Live" variant="dark" />
+            <Link
+              className="px-3 py-1.5 bg-gray-200 font-bold rounded-md"
+              href="/project/kanflow"
+              target="_blank"
+              title="Case study"
+            >
+              Case study
+            </Link>
+            <a
+              className="px-3 py-1.5 bg-black font-bold text-white rounded-md"
+              href={"https://kanflow-pro.vercel.app/"}
+              target="_blank"
+              title="Live"
+            >
+              Live
+            </a>
           </motion.div>
         </div>
 
         <motion.div
-          className="absolute right-0 top-30"
-          initial={{ x: 300 }}
-          whileInView={{ x: 200 }}
+          className="absolute right-0 top-30 max-md:hidden"
+          initial={{ x: 500 }}
+          whileInView={{ x: 300 }}
           viewport={{ once: true }}
           transition={{ type: "tween", duration: 0.5, delay: 0.1 }}
         >

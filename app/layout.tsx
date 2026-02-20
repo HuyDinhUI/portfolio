@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Kanit, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/header";
+import Footer from "@/components/ui/footer"
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -26,12 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressContentEditableWarning className="mdl-js">
       <body
         className={`${manrope.variable} ${kanit.variable} antialiased bg-black`}
       >
           <Header/>
           {children}
+          <Footer/>
       </body>
     </html>
   );

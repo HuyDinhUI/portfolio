@@ -3,14 +3,14 @@ import { About } from "@/types/about.type";
 export const LIST_ABOUT: About[] = [
     {
         title: "Education",
-        description: ""
+        description: "Graduated with a major in Information Security from the University of Industry and Trade."
     },
     {
         title: "Experience",
-        description: ""
+        description: "Drawing on experience from personal projects and small projects during the internship."
     },
     {
         title: "Strengths",
-        description: ""
+        description: "High self-learning ability, extensive knowledge of modern and new technologies."
     },
 ]
